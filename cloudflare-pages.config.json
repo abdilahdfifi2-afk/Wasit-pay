@@ -1,0 +1,64 @@
+{
+  "name": "wasit-pay",
+  "description": "Wasit Pay - Payment Processing Platform",
+  "repository": "https://github.com/abdilahdfifi2-afk/Wasit-pay",
+  "buildConfig": {
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist/client",
+    "rootDirectory": "./",
+    "nodeVersion": "22"
+  },
+  "environmentVariables": {
+    "production": [
+      "VITE_SUPABASE_URL",
+      "VITE_SUPABASE_ANON_KEY",
+      "VITE_API_BASE_URL",
+      "VITE_ENABLE_ANALYTICS",
+      "VITE_ENABLE_PWA"
+    ],
+    "preview": [
+      "VITE_SUPABASE_URL",
+      "VITE_SUPABASE_ANON_KEY",
+      "VITE_API_BASE_URL",
+      "VITE_ENABLE_ANALYTICS",
+      "VITE_ENABLE_PWA"
+    ]
+  },
+  "customDomain": {
+    "enabled": false,
+    "domain": "wasit-pay.com",
+    "cname": "wasit-pay.pages.dev"
+  },
+  "features": {
+    "analytics": true,
+    "pwa": true,
+    "caching": true,
+    "compression": true,
+    "minification": true
+  },
+  "buildSettings": {
+    "framework": "tanstack-start",
+    "language": "typescript",
+    "packageManager": "npm",
+    "buildTimeout": 600,
+    "memoryLimit": 512
+  },
+  "deploymentBranches": {
+    "production": "main",
+    "preview": "develop"
+  },
+  "routingRules": [
+    {
+      "path": "/api/*",
+      "handler": "server"
+    },
+    {
+      "path": "/~oauth/*",
+      "handler": "server"
+    },
+    {
+      "path": "/*",
+      "handler": "spa"
+    }
+  ]
+}

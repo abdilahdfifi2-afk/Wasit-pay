@@ -1,0 +1,23 @@
+# Cloudflare Pages Redirects Configuration
+# This file handles SPA routing and redirects
+
+# Redirect all non-file requests to index.html for client-side routing
+/*    /index.html   200
+
+# API routes should not be redirected
+/api/*  :splat  200
+
+# OAuth routes should not be redirected
+/~oauth/*  :splat  200
+
+# Static assets (these will be handled automatically by Cloudflare)
+# /assets/*  :splat  200
+# /images/*  :splat  200
+# /fonts/*  :splat  200
+
+# Redirect HTTP to HTTPS (handled by Cloudflare)
+# http://* https://:splat 301
+
+# Optional: Redirect www to non-www
+# http://www.example.com/* https://example.com/:splat 301
+# https://www.example.com/* https://example.com/:splat 301
